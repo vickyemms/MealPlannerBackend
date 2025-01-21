@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Data // Lombok annotation for getters, setters, toString, equals, and hashCode
-@NoArgsConstructor // Lombok annotation for no-args constructor
-@AllArgsConstructor // Lombok annotation for all-args constructor
+@Data // Lombok annotation for getters, setters, toString, equals, and h
 @Table(name = "ingredients") // Specifies the table name in the database
 public class Ingredient {
 
@@ -32,4 +30,44 @@ public class Ingredient {
     @ManyToOne
     @JoinColumn(name = "recipe_id", nullable = false) // Foreign key for Recipe
     private Recipe recipe;
+
+    // Explicit getter for 'id'
+    public Long getId() {
+        return id;
+    }
+
+    // Explicit getter for 'name'
+    public String getName() {
+        return name;
+    }
+
+    // Explicit getter for 'amount'
+    public double getAmount() {
+        return amount;
+    }
+
+    // Explicit getter for 'unit'
+    public String getUnit() {
+        return unit;
+    }
+
+    // Explicit getter for 'foodCategory'
+    public String getFoodCategory() {
+        return foodCategory;
+    }
+
+    // Explicit getter for 'foundAtHome'
+    public boolean isFoundAtHome() {
+        return foundAtHome;
+    }
+
+    // Explicit getter for 'originalAmount'
+    public double getOriginalAmount() {
+        return originalAmount;
+    }
+
+    // Explicit getter for 'recipe'
+    public Recipe getRecipe() {
+        return recipe;
+    }
 }
