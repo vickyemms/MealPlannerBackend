@@ -1,5 +1,6 @@
 package com.vegetarianmealplanner.meal_planner.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class Recipe {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) // Relationship with ingredients
     @JoinColumn(name = "recipe_id") // Foreign key column in the Ingredient table
+    //@JsonManagedReference
     private List<Ingredient> ingredients;
 
     @Lob // To handle large text, like instructions

@@ -1,5 +1,7 @@
 package com.vegetarianmealplanner.meal_planner.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +31,8 @@ public class Ingredient {
 
     @ManyToOne
     @JoinColumn(name = "recipe_id", nullable = false) // Foreign key for Recipe
+    @JsonIgnore
+    //@JsonBackReference
     private Recipe recipe;
 
     // Explicit getter for 'id'
