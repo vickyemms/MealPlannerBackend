@@ -20,7 +20,7 @@ public class Recipe {
     private String name;
 
     @Column(name = "image_resource_id")
-    private String imageResourceId;
+    private String imageURL;
 
     private String cuisine;
 
@@ -47,8 +47,8 @@ public class Recipe {
     }
 
     // Explicit getter for 'imageResourceId'
-    public String getImageResourceId() {
-        return imageResourceId;
+    public String getImageURL() {
+        return imageURL;
     }
 
     // Explicit getter for 'cuisine'
