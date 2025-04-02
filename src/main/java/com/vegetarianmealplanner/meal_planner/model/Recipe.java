@@ -1,20 +1,17 @@
 package com.vegetarianmealplanner.meal_planner.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 import java.util.List;
 
 @Entity
-@Data // Lombok annotation for getters, setters, toString, equals, and h
-@Table(name = "recipes") // Specifies the table name in the database
+@Data
+@Table(name = "recipes")
 public class Recipe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -28,50 +25,41 @@ public class Recipe {
 
     private String healthiness;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) // Relationship with ingredients
-    @JoinColumn(name = "recipe_id") // Foreign key column in the Ingredient table
-    //@JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "recipe_id")
     private List<Ingredient> ingredients;
 
-    @Lob // To handle large text, like instructions
+    @Lob
     private String instructions;
 
-    // Explicit getter for 'id'
     public Long getId() {
         return id;
     }
 
-    // Explicit getter for 'name'
     public String getName() {
         return name;
     }
 
-    // Explicit getter for 'imageResourceId'
     public String getImageURL() {
         return imageURL;
     }
 
-    // Explicit getter for 'cuisine'
     public String getCuisine() {
         return cuisine;
     }
 
-    // Explicit getter for 'protein'
     public String getProtein() {
         return protein;
     }
 
-    // Explicit getter for 'healthiness'
     public String getHealthiness() {
         return healthiness;
     }
 
-    // Explicit getter for 'ingredients'
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    // Explicit getter for 'instructions'
     public String getInstructions() {
         return instructions;
     }

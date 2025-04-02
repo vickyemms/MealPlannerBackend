@@ -16,7 +16,6 @@ public class IngredientController {
     @Autowired
     IngredientRepository ingredientRepository;
 
-    // Get all ingredients
     @GetMapping("/ingredients")
     public List<Ingredient> getAllIngredients() {
         return ingredientRepository.findAll();

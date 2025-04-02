@@ -20,7 +20,6 @@ public class RecipeController {
     @Autowired
     RecipeRepository recipeRepository;
 
-    // Get all recipes
     @GetMapping("/recipes")
     public List<Recipe> getAllRecipes() {
         List<Recipe> recipes = recipeRepository.findAll();
@@ -28,8 +27,6 @@ public class RecipeController {
         return recipes;
     }
 
-
-    // Get a specific recipe by ID
     @GetMapping("/{id}")
     public ResponseEntity<Recipe> getRecipeById(@PathVariable Long id) {
         return recipeRepository.findById(id)
